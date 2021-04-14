@@ -2,7 +2,7 @@
 tittle="------Anatomy Pipeline------"
 echo ""
 echo $tittle
-echo ""
+echo " "
 echo "->> Starting process..."
 
 anat_path="/home/ariosky/Raw_Data"
