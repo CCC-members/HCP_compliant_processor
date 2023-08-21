@@ -331,7 +331,7 @@ if [ "$b0_file" ]; then
   $nodif_file".nii.gz" $b0_file
   imain_file=$b0norm_path"/"$subject_id"_AP_PA_b0.nii.gz"
   
- # TopUp process: Correct fo susceptibility distortions using merged B0 images with opposite phase encoding directions
+ # TopUp process: Correct for susceptibility distortions using merged B0 images with opposite phase encoding directions
   echo "-->> Preparing Topup"
   
   b02b0_file="b02b0.cnf"

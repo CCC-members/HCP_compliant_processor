@@ -78,7 +78,7 @@ $dwi_ap_file $dwi_pa_file
 AP_PA_b0_file=$subject_output_path"/"$subject_id"_AP_PA_b0.nii.gz"
 
 
-# TopUp process: Correct fo susceptibility distortions using merged B0 images with opposite phase encoding directions
+# TopUp process: Correct for susceptibility distortions using merged B0 images with opposite phase encoding directions
 echo "-->> Preparing Topup"
 TopUp_path=$subject_output_path"/TopUp"
 mkdir -p $TopUp_path
