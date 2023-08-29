@@ -1,0 +1,4 @@
+[codespell]
+skip = .git,*.pdf,*.svg
+# some custom abbreviations and variables
+ignore-words-list = tittle,regist

@@ -64,7 +64,7 @@ echo "-->> Creating acqparams file"
 #   The non-zero number in the second column means that is along the y-direction. 
 #   A -1 means that k-space was traversed Anterior?Posterior and a 1 that it was traversed Posterior?Anterior. 
 #   The final column specifies the "total readout time"
-#   if you don't have the total readout time, you can obtain this value fallow this: https://lcni.uoregon.edu/kb-articles/kb-0003
+#   if you don't have the total readout time, you can obtain this value follow this: https://lcni.uoregon.edu/kb-articles/kb-0003
 printf "0 -1 0 0.0401697\n0 1 0 0.0401697" > $acqparam_file
 
 dwi_ap_file=$raw_data_path"/"$subject_id"/fmap/"$subject_id"_dir-AP_acq-dwi_epi.nii.gz"
@@ -78,7 +78,7 @@ $dwi_ap_file $dwi_pa_file
 AP_PA_b0_file=$subject_output_path"/"$subject_id"_AP_PA_b0.nii.gz"
 
 
-# TopUp process: Correct fo susceptibility distortions using merged B0 images with oposite phase encoding directions
+# TopUp process: Correct for susceptibility distortions using merged B0 images with opposite phase encoding directions
 echo "-->> Preparing Topup"
 TopUp_path=$subject_output_path"/TopUp"
 mkdir -p $TopUp_path
@@ -131,7 +131,7 @@ fslinfo $dwi_file
 index_file=$eddy_path"/index.txt"
 
 no_dir=`fslval $dwi_file dim4`
-echo "Geting directions number"
+echo "Getting directions number"
 index_vector=""
 for (( c=1; c<$no_dir; c++ ))
 do
@@ -151,7 +151,7 @@ eddy_unwarped_images_path=$eddy_path"/eddy_unwarped_images"
 mkdir $eddy_unwarped_images_path
 
 
-echo "-->> Running Eddy with the fallowing params"
+echo "-->> Running Eddy with the following params"
 echo "--imain="$dwi_file_name
 echo "--mask="$hifi_nodif_brain_mask_file
 echo "--index="$index_file 

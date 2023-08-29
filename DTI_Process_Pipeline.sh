@@ -34,7 +34,7 @@ helpFunction()
    echo -e "\t--bvec Subject bval file"
    echo -e "\t--fmap1 dir-fmap1"
    echo -e "\t--fmap2 dir-fmap2"
-   echo -e "\t--b0 Oposite phase encoding b0 volume"
+   echo -e "\t--b0 Opposite phase encoding b0 volume"
    echo -e "\t--out Output folder"
    echo -e "\t--sub Subject ID or name"
    echo -e "\t-h Help option"
@@ -164,7 +164,7 @@ if [ "$pa_file" ]; then
   fi
 fi
 echo "--------------------------------------------------------"
-echo "-->> Preparing subject enviroment for: "$subject_id
+echo "-->> Preparing subject environment for: "$subject_id
 subject_path=$study_path"/"$subject_id
 dtifit_nonprocc_path=$subject_path"/dtifit_nonprocc"
 b0norm_path=$subject_path"/b0norm"
@@ -229,7 +229,7 @@ if [ "$dwi_file" ] && [ -z "$ap_file" ] && [ -z "$pa_file" ]; then
   merge_path=$tmp_folder"/merge_processig"
   mkdir $merge_path
   
-  # Getting the volumn part and split by slices
+  # Getting the volume part and split by slices
   nodif_file_1=$slices_d1"/"$subject_id"_nodif_1"
   fslroi $dwi_file $nodif_file_1 0 1
   fslslice $nodif_file_1
@@ -264,8 +264,8 @@ if [ "$dwi_file" ] && [ -z "$ap_file" ] && [ -z "$pa_file" ]; then
       
   done  
   exit
-  # Merging volums
-  echo "-->> Merging volums file"
+  # Merging volume
+  echo "-->> Merging volume file"
   fslmerge \
   -t $b0norm_path"/"$subject_id"_volum_merged" \
   $nodif_file_1 $nodif_file_2
@@ -320,7 +320,7 @@ if [ "$b0_file" ]; then
   #   The non-zero number in the second column means that is along the y-direction. 
   #   A -1 means that k-space was traversed Anterior-Posterior and a 1 that it was traversed Posterior-Anterior. 
   #   The final column specifies the "total readout time"
-  #   if you don't have the total readout time, you can obtain this value fallow this: https://lcni.uoregon.edu/kb-articles/kb-0003
+  #   if you don't have the total readout time, you can obtain this value follow this: https://lcni.uoregon.edu/kb-articles/kb-0003
   
   printf "0 -1 0 0.01247\n0 1 0 0.01247" > $acqparam_file
    
@@ -331,7 +331,7 @@ if [ "$b0_file" ]; then
   $nodif_file".nii.gz" $b0_file
   imain_file=$b0norm_path"/"$subject_id"_AP_PA_b0.nii.gz"
   
- # TopUp process: Correct fo susceptibility distortions using merged B0 images with oposite phase encoding directions
+ # TopUp process: Correct for susceptibility distortions using merged B0 images with opposite phase encoding directions
   echo "-->> Preparing Topup"
   
   b02b0_file="b02b0.cnf"
@@ -367,7 +367,7 @@ if [ "$b0_file" ]; then
   index_file=$eddy_path"/index.txt"
   
   no_dir=`fslval $imain_file dim4`
-  echo "Geting directions number"
+  echo "Getting directions number"
   index_vector=""
   for (( c=1; c<$no_dir; c++ ))
   do
@@ -386,7 +386,7 @@ if [ "$b0_file" ]; then
   #Output
   eddy_unwarped_images_path=$eddy_dtifit_path
   
-  echo "-->> Running Eddy with the fallowing params"
+  echo "-->> Running Eddy with the following params"
   echo "--imain="$dwi_file_name
   echo "--mask="$hifi_nodif_brain_mask_file
   echo "--index="$index_file 
